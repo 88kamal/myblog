@@ -3,13 +3,17 @@ import {auth} from '../firebase'
 export default function NavBar({user}) {
     
     return (
-        <nav>
-        <div className="nav-wrapper #00838f cyan darken-3">
-          <Link href="/"><a className="brand-logo">MyBlog</a></Link>
-          <ul id="nav-mobile" className="right">
+        <nav className=''>
+        <div className="nav-wrapper #00838f cyan darken-3 ">
+         <div className=' container'>    
+               <Link href="/"><a className="brand-logo">MyBlog</a></Link>
+
+         <ul id="nav-mobile" className="right ">
             {user?
             <>
+              <li><Link href="/about"><a>About</a></Link></li>
               <li><Link href="/createblog"><a>Create Blog</a></Link></li>
+
               <li> <button  className="btn red" onClick={()=>auth.signOut()}>Logout</button></li>
             </>
             
@@ -21,6 +25,7 @@ export default function NavBar({user}) {
             }
             
           </ul>
+         </div>
         </div>
       </nav>
     )
